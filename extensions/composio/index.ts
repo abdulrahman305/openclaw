@@ -1,11 +1,10 @@
-import type { JsonSchemaObject } from "openclaw/plugin-sdk/json-schema-runtime";
 // Composio plugin entrypoint. Registers two agent tools (composio_search,
 // composio_execute) that are optional (opt-in via tools.allow) and gates every
 // composio_execute call behind a per-call approval. Tool execution is confined
 // to an allowlist of Composio toolkits so a paired remote user cannot invoke
 // arbitrary connected-account actions.
+import type { JsonSchemaObject } from "openclaw/plugin-sdk/json-schema-runtime";
 import { buildJsonPluginConfigSchema, definePluginEntry } from "openclaw/plugin-sdk/plugin-entry";
-import { jsonResult, textResult } from "openclaw/plugin-sdk/tool-results";
 import { Type } from "typebox";
 import {
   getComposioClient,
@@ -26,6 +25,16 @@ function requireStringParam(params: Record<string, unknown>, key: string): strin
     throw new Error(`Missing required string parameter: ${key}`);
   }
   return value.trim();
+}
+
+// Inlined tool-result helpers. The published gateway package does not export
+// openclaw/plugin-sdk/tool-results, so we build the AgentToolResult shape here.
+function textResult(text: string, details: unknown) {
+  return { content: [{ type: "text" as const, text }], details };
+}
+
+function jsonResult(payload: unknown) {
+  return textResult(JSON.stringify(payload, null, 2), payload);
 }
 
 export default definePluginEntry({

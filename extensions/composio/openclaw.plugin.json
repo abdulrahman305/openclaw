@@ -1,0 +1,53 @@
+{
+  "id": "composio",
+  "name": "Composio",
+  "description": "Expose an allowlisted set of Composio tools to the agent behind per-call approval.",
+  "version": "2026.6.11",
+  "activation": {
+    "onStartup": true
+  },
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "description": "Composio API key. Falls back to the COMPOSIO_API_KEY environment variable."
+      },
+      "userId": {
+        "type": "string",
+        "description": "Composio user id used to resolve the connected account for tool execution."
+      },
+      "allowedToolkits": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Allowlist of Composio toolkit slugs (lowercase), for example github or gmail. Execution of tools outside this list is refused."
+      },
+      "searchLimit": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Maximum number of tools returned by composio_search."
+      },
+      "requireApproval": {
+        "type": "boolean",
+        "description": "Require per-call user approval before composio_execute runs. Defaults to true."
+      }
+    },
+    "additionalProperties": false
+  },
+  "contracts": {
+    "tools": [
+      "composio_search",
+      "composio_execute"
+    ]
+  },
+  "toolMetadata": {
+    "composio_search": {
+      "optional": true
+    },
+    "composio_execute": {
+      "optional": true
+    }
+  }
+}

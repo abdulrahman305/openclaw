@@ -578,6 +578,19 @@ importers:
         specifier: workspace:*
         version: link:../../packages/plugin-sdk
 
+  extensions/composio:
+    dependencies:
+      '@composio/core':
+        specifier: 0.13.1
+        version: 0.13.1(@aws-sdk/credential-provider-node@3.972.61)(@smithy/hash-node@4.4.5)(@smithy/signature-v4@5.6.1)(ws@8.21.0)(zod@4.4.3)
+      typebox:
+        specifier: 1.3.3
+        version: 1.3.3
+    devDependencies:
+      '@openclaw/plugin-sdk':
+        specifier: workspace:*
+        version: link:../../packages/plugin-sdk
+
   extensions/copilot:
     dependencies:
       '@github/copilot-sdk':
@@ -751,6 +764,12 @@ importers:
         specifier: workspace:*
         version: link:../../packages/plugin-sdk
 
+  extensions/featherless:
+    devDependencies:
+      '@openclaw/plugin-sdk':
+        specifier: workspace:*
+        version: link:../../packages/plugin-sdk
+
   extensions/feishu:
     dependencies:
       '@larksuiteoapi/node-sdk':
@@ -778,12 +797,6 @@ importers:
       typebox:
         specifier: 1.3.3
         version: 1.3.3
-    devDependencies:
-      '@openclaw/plugin-sdk':
-        specifier: workspace:*
-        version: link:../../packages/plugin-sdk
-
-  extensions/featherless:
     devDependencies:
       '@openclaw/plugin-sdk':
         specifier: workspace:*
@@ -975,12 +988,6 @@ importers:
 
   extensions/lmstudio: {}
 
-  extensions/longcat:
-    devDependencies:
-      '@openclaw/plugin-sdk':
-        specifier: workspace:*
-        version: link:../../packages/plugin-sdk
-
   extensions/lobster:
     dependencies:
       '@clawdbot/lobster':
@@ -1002,6 +1009,12 @@ importers:
       openclaw:
         specifier: workspace:*
         version: link:../..
+
+  extensions/longcat:
+    devDependencies:
+      '@openclaw/plugin-sdk':
+        specifier: workspace:*
+        version: link:../../packages/plugin-sdk
 
   extensions/matrix:
     dependencies:
@@ -2404,6 +2417,19 @@ packages:
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
     engines: {node: '>=0.1.90'}
+
+  '@composio/client@0.1.0-alpha.74':
+    resolution: {integrity: sha512-/EHJsFxCpWfRxNvXURRrGVZfJSltSpN4Gkd9M9Cl5gPOirG+NpbXf2B8d4B72H87m7cnOguMKjOH42ogQ84/Ww==}
+
+  '@composio/core@0.13.1':
+    resolution: {integrity: sha512-bC64PJG3RBeuezihfZV/9qJMd1LyzUEFN1tVHTWh32n/muUMr5I33nN6Mezhtkl4+ffBJ8IZ/mNt9tEQKFB/sw==}
+    peerDependencies:
+      zod: ^3.25 || ^4
+
+  '@composio/json-schema-to-zod@0.2.0':
+    resolution: {integrity: sha512-P7ym7+1NCN2cDVlSOGTINY6KjZ/d162uc+0LChYcy3d5RAAacgHiGU7ZJF+5pUJHbIivsfAC/4PdjVdsfmHdeA==}
+    peerDependencies:
+      zod: '>=3.25.76 <5'
 
   '@copilotkit/aimock@1.35.0':
     resolution: {integrity: sha512-dWtNUeaWD4jaC3Kv9oBiCoIczENM6u8pWBCmybn0/hSFEY57yqCtOGPsVNIG/YlmwbH8p5sgtL6xZzo1FnPi8g==}
@@ -4269,6 +4295,9 @@ packages:
 
   '@types/jsesc@2.5.1':
     resolution: {integrity: sha512-9VN+6yxLOPLOav+7PwjZbxiID2bVaeq0ED4qSQmdQTdjnXJSaCVKTR58t15oqH1H5t8Ng2ZX1SabJVoN9Q34bw==}
+
+  '@types/json-schema@7.0.15':
+    resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
   '@types/jsonwebtoken@9.0.10':
     resolution: {integrity: sha512-asx5hIG9Qmf/1oStypjanR7iKTv0gXQ1Ov/jfrX6kS/EO0OFni8orbmGCn0672NHR3kXHwpAwR+B368ZGN/2rA==}
@@ -6702,6 +6731,9 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
+  pusher-js@8.5.0:
+    resolution: {integrity: sha512-V7uzGi9bqOOOyM/6IkJdpFyjGZj7llz1v0oWnYkZKcYLvbz6VcHVLmzKqkvegjuMumpfIEKGLmWHwFb39XFCpw==}
+
   qified@0.10.1:
     resolution: {integrity: sha512-+Owyggi9IxT1ePKGafcI87ubSmxol6smwJ+RAHDQlx9+9cPwFWDiKFFCPuWhr9ignlGpZ9vDQLw67N4dcTVFEA==}
     engines: {node: '>=20'}
@@ -7324,6 +7356,9 @@ packages:
   tuf-js@4.1.0:
     resolution: {integrity: sha512-50QV99kCKH5P/Vs4E2Gzp7BopNV+KzTXqWeaxrfu5IQJBOULRsTIS9seSsOVT8ZnGXzCyx55nYWAi4qJzpZKEQ==}
     engines: {node: ^20.17.0 || >=22.9.0}
+
+  tweetnacl@1.0.3:
+    resolution: {integrity: sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==}
 
   type-is@2.1.0:
     resolution: {integrity: sha512-faYHw0anBbc/kWF3zFTEnxSFOAGUX9GFbOBthvDdLsIlEoWOFOtS0zgCiQYwIskL9iGXZL3kAXD8OoZ4GmMATA==}
@@ -8263,6 +8298,29 @@ snapshots:
 
   '@colors/colors@1.5.0':
     optional: true
+
+  '@composio/client@0.1.0-alpha.74': {}
+
+  '@composio/core@0.13.1(@aws-sdk/credential-provider-node@3.972.61)(@smithy/hash-node@4.4.5)(@smithy/signature-v4@5.6.1)(ws@8.21.0)(zod@4.4.3)':
+    dependencies:
+      '@composio/client': 0.1.0-alpha.74
+      '@composio/json-schema-to-zod': 0.2.0(zod@4.4.3)
+      '@types/json-schema': 7.0.15
+      openai: 6.45.0(@aws-sdk/credential-provider-node@3.972.61)(@smithy/hash-node@4.4.5)(@smithy/signature-v4@5.6.1)(ws@8.21.0)(zod@4.4.3)
+      picocolors: 1.1.1
+      pusher-js: 8.5.0
+      semver: 7.8.5
+      zod: 4.4.3
+      zod-to-json-schema: 3.25.2(zod@4.4.3)
+    transitivePeerDependencies:
+      - '@aws-sdk/credential-provider-node'
+      - '@smithy/hash-node'
+      - '@smithy/signature-v4'
+      - ws
+
+  '@composio/json-schema-to-zod@0.2.0(zod@4.4.3)':
+    dependencies:
+      zod: 4.4.3
 
   '@copilotkit/aimock@1.35.0(vitest@4.1.9)':
     optionalDependencies:
@@ -9972,6 +10030,8 @@ snapshots:
   '@types/http-errors@2.0.5': {}
 
   '@types/jsesc@2.5.1': {}
+
+  '@types/json-schema@7.0.15': {}
 
   '@types/jsonwebtoken@9.0.10':
     dependencies:
@@ -12789,6 +12849,10 @@ snapshots:
 
   punycode@2.3.1: {}
 
+  pusher-js@8.5.0:
+    dependencies:
+      tweetnacl: 1.0.3
+
   qified@0.10.1:
     dependencies:
       hookified: 2.2.0
@@ -13495,6 +13559,8 @@ snapshots:
       make-fetch-happen: 15.0.6
     transitivePeerDependencies:
       - supports-color
+
+  tweetnacl@1.0.3: {}
 
   type-is@2.1.0:
     dependencies:
